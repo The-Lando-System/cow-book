@@ -1,0 +1,17 @@
+/* ==========================
+ * CSS for the entire app 
+ */
+
+html { 
+	overflow-y: scroll;
+}
+
+body {
+	padding-top: 50px;
+	background-color: #545454;
+}
+
+.jumbotron {
+	background-color: #2A2A2A;
+	color: white;
+}
