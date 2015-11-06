@@ -1,4 +1,7 @@
 myApp.controller('homeController', function($scope,CowFactory) {
+    
+    $scope.cowArray = [{NAME: "MILKY", AGE: 22}, {NAME: "JGC", AGE: 70}];
+
 	var getCows = function(){
 		CowFactory.get()
 		.success(function(data){
@@ -11,4 +14,10 @@ myApp.controller('homeController', function($scope,CowFactory) {
 	angular.element(document).ready(function () {
 		getCows();
 	});
+
+	
+
+
+
+
 });

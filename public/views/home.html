@@ -1,9 +1,13 @@
-<div class="container">
+<div class="container" >
   <div class="jumbotron text-center">
     <h1>Cow Book</h1>
   </div>
 
-  <div ng-repeat="cow in cows" class="row text-center" style="color:white">
+  <!-- <div ng-repeat="cow in cows" class="row text-center" style="color:white">
     <h2>Cow Name: {{ cow.name }} ; Gender: {{ cow.gender }} ; Birthdate: {{ cow.birthdate }}</h2>
-  </div>
+  </div> -->
+
 </div>
+<!-- <button class="btn btn-default" ng-csv="testArray" filename="ALL_MY_COWS.csv">EXPORT</button>
+<button type="button" ng-csv="testArray" filename="test.csv">Export</button> -->
+<button class="btn btn-default" ng-csv="cowArray" filename="test.csv">Export COWS to CSV</button>
