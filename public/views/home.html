@@ -1,20 +1,104 @@
 <div class="container" >
-  <div class="jumbotron text-center">
-    <h1>Cow Book</h1>
-  </div>
+	<div class="jumbotron text-center">
+		<h1>Cow Book</h1>
+	</div>
 
-  <div ng-repeat="cow in cows" class="row text-center" style="color:white">
-    <h2>Cow Name: {{ cow.name }} ; Gender: {{ cow.gender }} ; Birthdate: {{ cow.birthdate }}</h2>
-  </div> 
+	<!-- <div ng-repeat="cow in cows" class="row text-center" style="color:white">
+		<h2>Cow Name: {{ cow.name }} ; Gender: {{ cow.gender }} ; Birthdate: {{ cow.birthdate }}</h2>
+	</div>  -->
+	
+	<button class="btn btn-default" ng-click="makeNewField(false)" ng-disabled="!newFields">Enter Data</button>
 
+	<button class="btn btn-default" ng-click="makeNewField(true)" ng-disabled="newFields">Create Fields</button>
+	
+
+	<div ng-show="!newFields">
+		<hr>
+			<div class="text-center" style="color:white;"> 
+				<h3>Fill out Cow Data</h3>
+			</div>
+		<hr>
+		<!-- Dynamic Form -->
+		<form ng-submit="submit()" class="text-center">
+			<div class="col-md-12 col-xs-12">
+
+				<p class="bg-danger" ng-show="fieldArray.length < 1"> 
+					Looks like you have no fields! </br>
+					Select "Create Fields" to continue.
+				</p>
+
+				<div class="form-group col-md-3  text-right" ng-repeat="field in fieldArray">
+					<b style="color:white">
+						<label>{{field.fieldName}} : </label>
+					</b>
+					<input type="{{field.dataType}}" ng-model="newCowInfo[field.fieldName]"/>
+				</div>
+			</div>
+			<input class="btn btn-default" type="submit" value="Submit" ng-disabled="fieldArray.length < 1 ">
+		</form>
+
+		<hr>
+
+		<div class="text-center">
+			<div class="row" style="color:white;">
+				Export file : {{exportFileName}}
+			</div>
+			</br>
+			<button class="btn btn-success" ng-csv="cows" filename="{{exportFileName}}">Export</button>
+		</div>	
+	</div>
+
+<!-- CREATE DATA TABLES -->
+<!-- Shows only when makeNewFields==TRUE -->
+<div ng-show="newFields">
+	<hr>
+		<div class="text-center" style="color:white;"> 
+			<h3>Create New Labels</h3>
+		</div>
+	<hr>
+
+	<form ng-submit="submitFields(field)" class="text-center">
+		<div class="col-md-12 col-xs-12">
+			<div class="form-group col-md-3 text-right">
+				<b style="color:white">
+					<label>Label Name : </label>
+				</b>
+				<input type="text" ng-model="field.fieldName"/>
+			</div>
+			<div class="form-group col-md-3 text-right">
+				<b style="color:white">
+					<label>Data Type : </label>
+				</b>
+				<select name="repeatSelect" id="repeatSelect" ng-model="field.dataType">
+					<option ng-repeat="option in data.availableOptions" value="{{option.name}}">{{option.name}}</option>
+				</select>
+			</div>
+			<div class="form-group col-md-3">
+				<input class="btn btn-default" type="submit" value="Create">
+			</div>
+		</div>
+		<div class="form-group col-md-12 col-xs-12" style="border:solid; color:white;">
+			<b>
+				<label>Current Fields</label>
+			</b>
+			<div ng-repeat="f in fieldArray">
+					Field Name: {{f.fieldName}} 
+					</br> 
+					Input Type: {{f.dataType}}
+					<hr>
+			</div>
+		</div>
+	</form>
+	<hr>
+	<hr>
+</div>
+	
+<!-- //CREATE DATA TABLES -->
+
+	</br>
+	</br>
+	</br>
+	</br>
 </div>
 
-<form>
-	<div class="col-md-12 col-xs-12">
-		<div class="form-group col-md-3  text-right" ng-repeat="field in fieldArray">
-			<label>{{field.fieldName}} : </label>
-			<input type="{{field.dataType}}" />
-		</div>
-	</div>
-</form>
-<button class="btn btn-default" ng-csv="cowArray" filename="test.csv">Export COWS</button>
+

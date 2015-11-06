@@ -1,0 +1,13 @@
+myApp.controller('fieldValueController', function($scope,CowFactory) {
+
+	$scope.data = {
+	    repeatSelect: null,
+	    availableOptions: [
+	      {id: '1', name: 'Text'},
+	      {id: '2', name: 'Date'},
+	      {id: '3', name: 'Number'}
+	    ],
+	};
+
+
+});
