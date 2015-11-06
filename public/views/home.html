@@ -9,4 +9,12 @@
 
 </div>
 
-<button class="btn btn-default" ng-csv="cowArray" filename="test.csv">Export COWS to CSV</button>
+<form>
+	<div class="col-md-12 col-xs-12">
+		<div class="form-group col-md-3  text-right" ng-repeat="field in fieldArray">
+			<label>{{field.fieldName}} : </label>
+			<input type="{{field.dataType}}" />
+		</div>
+	</div>
+</form>
+<button class="btn btn-default" ng-csv="cowArray" filename="test.csv">Export COWS</button>
