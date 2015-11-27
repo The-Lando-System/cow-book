@@ -15,3 +15,16 @@ body {
 	background-color: #2A2A2A;
 	color: white;
 }
+
+.login-text {
+	color: white;
+}
+
+.login-form-group input {
+	margin-bottom: 10px;
+}
+
+.failed-auth p {
+	color: #FF9D9D;
+	font-weight: bold;
+}

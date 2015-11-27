@@ -9,6 +9,8 @@
     "angular-route": "latest",
     "angular-cookies": "latest",
     "angular-jwt": "latest",
-    "angular-ui-router": "latest"
+    "angular-ui-router": "latest",
+    "angular-sanitize": "latest",
+    "ng-csv": "latest"
   }
 }

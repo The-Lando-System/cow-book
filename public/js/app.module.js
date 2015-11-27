@@ -9,13 +9,18 @@ var myApp = angular.module('myApp', [
 
 .config(['$urlRouterProvider','$stateProvider', function($urlRouterProvider,$stateProvider) {
 	$urlRouterProvider
-	.otherwise('/home');
+	.otherwise('/login');
 
 	$stateProvider
 	.state('home', {
 		url: '/home',
 		templateUrl: '/home',
 		controller: 'homeController'
+	})
+	.state('login', {
+		url: '/login',
+		templateUrl: '/login',
+		controller: 'loginController'
 	});
 
 }]);
