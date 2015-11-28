@@ -1,4 +1,4 @@
-myApp.controller('homeController', function($scope,CowFactory) {
+myApp.controller('homeController', function($scope,$location,CowFactory,AuthService) {
 
 	// Holds all the values from the form
 	$scope.newCowInfo ={};
@@ -82,6 +82,16 @@ myApp.controller('homeController', function($scope,CowFactory) {
     ],
    };
 
+    $scope.logout = function(){
+		AuthService.logout();
+	};
+
+	angular.element(document).ready(function () {
+		$scope.userSession = AuthService.startUserSession();
+		if (!$scope.userSession.user) {
+			$location.path('login');
+		}
+	});
 
 
 });
